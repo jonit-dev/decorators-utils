@@ -24,7 +24,7 @@
     "size": "size-limit",
     "analyze": "size-limit --why",
     "tsc": "tsc -p .",
-    "prepublish": "tsc && yarn build",
+    "prepublish": "tsc",
     "format": "prettier --write 'src/**/*.ts' --log-level silent",
     "format:check": "prettier --check '**/*.ts' '**/*.json'"
   },
