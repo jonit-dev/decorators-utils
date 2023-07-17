@@ -10,6 +10,32 @@ yarn install decorator-utils
 
 ## Usage
 
+### Loggers
+
+#### @ClassLogger
+
+This decorator will log the class name and the method name before the method execution.
+
+```typescript
+
+import { ClassLogger } from 'decorator-utils';
+
+@ClassLogger()
+export class SomeClassHere {
+  public someMethodHere() {
+    ...
+  }
+}
+```
+
+Would output something like:
+
+```
+ Running SomeClassHere.someMethodHere with arguments: [
+  ...
+  ]
+```
+
 ### Performance Trackers
 
 <img src="./docs/track-class-execution-time.jpg" alt="Performance trackers">
