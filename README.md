@@ -10,32 +10,6 @@ yarn add @jonit-dev/decorators-utils -D
 
 ## Usage
 
-### Loggers
-
-#### @ClassLogger
-
-This decorator will log the class name and the method name before the method execution.
-
-```typescript
-
-import { ClassLogger } from '@jonit-dev/decorators-utils';
-
-@ClassLogger()
-export class SomeClassHere {
-  public someMethodHere() {
-    ...
-  }
-}
-```
-
-Would output something like:
-
-```
- Running SomeClassHere.someMethodHere with arguments: [
-  ...
-  ]
-```
-
 ### Performance Trackers
 
 <img src="./docs/track-class-execution-time.jpg" alt="Performance trackers">
@@ -79,4 +53,30 @@ import { DecorateAllWith } from '@jonit-dev/decorators-utils';
 export class SomeClassHere {
   ...
 }
+```
+
+### Loggers
+
+#### @ClassLogger
+
+This decorator will log the class name and the method name before the method execution.
+
+```typescript
+
+import { ClassLogger } from '@jonit-dev/decorators-utils';
+
+@ClassLogger()
+export class SomeClassHere {
+  public someMethodHere() {
+    ...
+  }
+}
+```
+
+Would output something like:
+
+```
+ Running SomeClassHere.someMethodHere with arguments: [
+  ...
+  ]
 ```
