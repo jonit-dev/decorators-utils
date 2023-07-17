@@ -1,6 +1,6 @@
 /* eslint-disable no-proto */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { performance } from "perf_hooks";
+import { performance } from 'perf_hooks';
 
 export function TrackClassExecutionTime(): ClassDecorator {
   return function (target: Function) {
@@ -9,9 +9,12 @@ export function TrackClassExecutionTime(): ClassDecorator {
       ...Object.getOwnPropertyNames(target.prototype.__proto__),
     ];
     keys.forEach((propertyName) => {
-      if (propertyName !== "constructor") {
-        const descriptor = Object.getOwnPropertyDescriptor(target.prototype, propertyName);
-        if (descriptor && typeof descriptor.value === "function") {
+      if (propertyName !== 'constructor') {
+        const descriptor = Object.getOwnPropertyDescriptor(
+          target.prototype,
+          propertyName
+        );
+        if (descriptor && typeof descriptor.value === 'function') {
           const originalMethod = descriptor.value;
           descriptor.value = function (...args: any[]): any {
             const className = target.name;
@@ -35,18 +38,25 @@ export function TrackClassExecutionTime(): ClassDecorator {
       }
     });
 
-    function printDuration(className: string, methodName: string, start: number) {
+    function printDuration(
+      className: string,
+      methodName: string,
+      start: number
+    ) {
       const duration = performance.now() - start;
-      let color = "\x1b[0m"; // default to white
+      let color = '\x1b[0m'; // default to white
       if (duration < 1) {
-        color = "\x1b[32m"; // green
+        color = '\x1b[32m'; // green
       } else if (duration < 5) {
-        color = "\x1b[33m"; // yellow
+        color = '\x1b[33m'; // yellow
       } else {
-        color = "\x1b[31m"; // red
+        color = '\x1b[31m'; // red
       }
 
-      console.log(color, `${className}.${methodName}: ${duration.toFixed(2)}ms\x1b[0m`);
+      console.log(
+        color,
+        `${className}.${methodName}: ${duration.toFixed(2)}ms\x1b[0m`
+      );
     }
   };
 }

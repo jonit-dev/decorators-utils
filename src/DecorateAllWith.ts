@@ -1,11 +1,11 @@
 export function DecorateAllWith(decorator: MethodDecorator): ClassDecorator {
-  return function(constructor: Function) {
+  return function (constructor: Function) {
     // Get the prototype of the class
     const prototype = constructor.prototype;
     // Get all property names of the class
     const propertyNames = Object.getOwnPropertyNames(prototype);
     // Loop over all property names
-    propertyNames.forEach(propertyName => {
+    propertyNames.forEach((propertyName) => {
       // If the property is a function (but not the constructor)
       if (
         propertyName !== 'constructor' &&

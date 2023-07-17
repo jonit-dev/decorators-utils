@@ -1,4 +1,6 @@
 {
+  "name": "@jonit-dev/decorators-utils",
+  "author": "Joao Paulo Furtado",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -17,12 +19,17 @@
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "tsc": "tsc -p .",
+    "prepublish": "tsc",
+    "format": "prettier --write 'src/**/*.ts' --log-level silent",
+    "format:check": "prettier --check '**/*.ts' '**/*.json'"
   },
   "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tsdx lint",
+      "pre-push": "yarn tsc && yarn format"
     }
   },
   "prettier": {
@@ -31,8 +38,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "decorators-utils",
-  "author": "Joao Paulo Furtado",
   "module": "dist/decorators-utils.esm.js",
   "size-limit": [
     {
