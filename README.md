@@ -18,7 +18,7 @@ This decorator will log the class name and the method name before the method exe
 
 ```typescript
 
-import { ClassLogger } from 'decorator-utils';
+import { ClassLogger } from '@jonit-dev/decorators-utils';
 
 @ClassLogger()
 export class SomeClassHere {
@@ -45,7 +45,7 @@ Would output something like:
 This one is a method specific performance tracker. It will track the performance of the decorated method by using a console.time and console.timeEnd.
 
 ```typescript
-import { TrackExecutionTime } from 'decorator-utils';
+import { TrackExecutionTime } from '@jonit-dev/decorators-utils';
 
 export class SomeClassHere {
   @TrackExecutionTime()
@@ -60,7 +60,7 @@ export class SomeClassHere {
 This decorator will track the performance of all public and private methods of a class, by using a console.time and console.timeEnd.
 
 ```typescript
-import { TrackClassExecutionTime } from 'decorator-utils';
+import { TrackClassExecutionTime } from '@jonit-dev/decorators-utils';
 
 @TrackClassExecutionTime()
 export class SomeClassHere {
@@ -73,7 +73,7 @@ export class SomeClassHere {
 As the name suggests, this decorator will decorate all methods of a class with the given decorator.
 
 ```typescript
-import { DecorateAllWith } from 'decorator-utils';
+import { DecorateAllWith } from '@jonit-dev/decorators-utils';
 
 @DecorateAllWith(TrackExecutionTime())
 export class SomeClassHere {
