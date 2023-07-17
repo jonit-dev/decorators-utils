@@ -16,26 +16,14 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "husky install",
+    "lint": "yarn eslint --fix src/*",
+    "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "tsc": "tsc -p .",
-    "prepublish": "tsc",
+    "prepublish": "tsc && yarn build",
     "format": "prettier --write 'src/**/*.ts' --log-level silent",
     "format:check": "prettier --check '**/*.ts' '**/*.json'"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint",
-      "pre-push": "yarn tsc && yarn format"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
   },
   "module": "dist/decorators-utils.esm.js",
   "size-limit": [
@@ -50,7 +38,13 @@
   ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^8.2.6",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
+    "prettier": "^3.0.0",
     "size-limit": "^8.2.6",
     "tsdx": "^0.14.1",
     "tslib": "^2.6.0",
