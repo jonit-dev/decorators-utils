@@ -5,7 +5,7 @@ This lib is a collection of useful decorators for debugging, logging and other u
 ## Installation
 
 ```
-yarn install decorator-utils
+yarn add @jonit-dev/decorators-utils -D
 ```
 
 ## Usage

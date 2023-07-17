@@ -5,14 +5,23 @@ export function ClassLogger(): ClassDecorator {
 
     propertyNames.forEach((propertyName) => {
       // @ts-ignore
-      if (propertyName !== "constructor" && typeof prototype[propertyName] === "function") {
-        const isPrivate = propertyName.startsWith("_");
-        const descriptor = Object.getOwnPropertyDescriptor(prototype, propertyName);
+      if (
+        propertyName !== 'constructor' &&
+        typeof prototype[propertyName] === 'function'
+      ) {
+        const isPrivate = propertyName.startsWith('_');
+        const descriptor = Object.getOwnPropertyDescriptor(
+          prototype,
+          propertyName
+        );
 
         const newDescriptor: PropertyDescriptor = {
           value: function (...args: any[]) {
-            const indent = isPrivate ? "    " : "";
-            console.log(`${indent}Running ${propertyName} with arguments:`, args);
+            const indent = isPrivate ? '    ' : '';
+            console.log(
+              `${indent}Running ${propertyName} with arguments:`,
+              args
+            );
             return descriptor!.value!.apply(this, args);
           },
         };
